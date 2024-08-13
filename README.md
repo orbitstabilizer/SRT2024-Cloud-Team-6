@@ -11,6 +11,6 @@ Under the supervision of **Atay Özgovde**, team members will engage in practica
 > - Develop skills in managing and scaling high-performance computing solutions across distributed systems.
 
 ## Team Members
-- [Hasan Kerem Şeker](https://github.com/orbitstabilize)
+- [Hasan Kerem Şeker](https://github.com/hks1444)
 - Şimal Güven
 - [Yusuf Akın](https://github.com/orbitstabilizer)
