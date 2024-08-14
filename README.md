@@ -12,5 +12,5 @@ Under the supervision of **Atay Özgovde**, team members will engage in practica
 
 ## Team Members
 - [Hasan Kerem Şeker](https://github.com/hks1444)
-- Şimal Güven
+- [Şimal Güven](https://github.com/simalguven)
 - [Yusuf Akın](https://github.com/orbitstabilizer)
