@@ -49,3 +49,12 @@ ssh <remote> "python3 ~/server.py" &
 ssh -NL 8080:127.0.0.1:8080 <remote> &
 ab -n 100 -c 5 127.0.0.1:8080/time > benchmark/remote_benchmark.txt
 ```
+#### Docker Container run
+``` bash
+# assuming you have Docker engine installed
+docker build -t week-1-server . # build the docker image
+# crate an instance of week-1-server image and bind service port
+docker run -d -p 8080:8080 --name pytime week-1-server # -d for detach
+docker start pytime # start the instance
+ab -n 100 -c 5 127.0.0.1:8080/time > benchmark/docker_benchmark.txt
+```
