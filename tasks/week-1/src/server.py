@@ -30,7 +30,7 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == '__main__':
-    server = HTTPServer(('localhost', 8080), Handler)
-    print("serving at 127.0.0.1:8080")
+    server = HTTPServer(('0.0.0.0', 8080), Handler)
+    print("serving at 0.0.0.0:8080")
     server.serve_forever()
 
