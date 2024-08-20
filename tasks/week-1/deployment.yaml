@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: week-1-k8
+  name: week-1-k8
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: week-1-k8
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: week-1-k8
+    spec:
+      containers:
+      - name: week-1-server
+        image: week-1-server
+        imagePullPolicy: Never
+status: {}
