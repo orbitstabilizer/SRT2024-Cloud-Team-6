@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-server-deployment
+  labels:
+    app: time-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: time-server
+  template:
+    metadata:
+      labels:
+        app: time-server
+    spec:
+      containers:
+        - name: time-server
+          image: hasanseker/demo-web-app:v6
+          ports:
+            - containerPort: 8080
+          securityContext:
+            runAsUser: 10001 # This should match the UID in your Dockerfile
