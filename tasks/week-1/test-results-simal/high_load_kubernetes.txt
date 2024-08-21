@@ -1,0 +1,55 @@
+(base) simalguven@Simals-MacBook-Air-370 myapp % ab -n 2000 -c 100 http://localhost:30007/
+This is ApacheBench, Version 2.3 <$Revision: 1913912 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking localhost (be patient)
+Completed 200 requests
+Completed 400 requests
+Completed 600 requests
+Completed 800 requests
+Completed 1000 requests
+Completed 1200 requests
+Completed 1400 requests
+Completed 1600 requests
+Completed 1800 requests
+Completed 2000 requests
+Finished 2000 requests
+
+
+Server Software:        
+Server Hostname:        localhost
+Server Port:            30007
+
+Document Path:          /
+Document Length:        31 bytes
+
+Concurrency Level:      100
+Time taken for tests:   0.271 seconds
+Complete requests:      2000
+Failed requests:        0
+Total transferred:      264000 bytes
+HTML transferred:       62000 bytes
+Requests per second:    7376.94 [#/sec] (mean)
+Time per request:       13.556 [ms] (mean)
+Time per request:       0.136 [ms] (mean, across all concurrent requests)
+Transfer rate:          950.93 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    1   1.2      1       5
+Processing:     3   12   4.6     12      27
+Waiting:        3    9   3.5      9      22
+Total:          4   13   4.8     13      31
+
+Percentage of the requests served within a certain time (ms)
+  50%     13
+  66%     14
+  75%     15
+  80%     16
+  90%     18
+  95%     22
+  98%     29
+  99%     30
+ 100%     31 (longest request)
+
