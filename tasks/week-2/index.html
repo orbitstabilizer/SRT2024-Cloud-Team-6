@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Time Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #time {
+            font-size: 2em;
+            color: #333;
+        }
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Current Time</h1>
+    <div id="time">Loading...</div>
+    <button onclick="fetchTime()">Refresh Time</button>
+
+    <script>
+        function fetchTime() {
+            fetch('http://pytime.local:30371/time')
+                .then(response => response.json())
+                .then(data => {
+                    const date = new Date(data.time * 1000);
+                    document.getElementById('time').textContent = date.toLocaleString();
+                })
+                .catch(error => {
+                    document.getElementById('time').textContent = 'Failed to fetch time.';
+                    console.error('Error fetching time:', error);
+                });
+        }
+
+        // Fetch time on page load
+        window.onload = fetchTime;
+    </script>
+</body>
+</html>

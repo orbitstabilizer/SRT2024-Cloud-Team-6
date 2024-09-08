@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: backend
+    container_name: backend-1
+    ports:
+      - "8080:8080"                    # Exposes port 8080 to the host
+    networks:
+      - app-network
+
+  frontend:
+    image: front
+    container_name: frontend-1
+    ports:
+      - "8081:8081"                        # Exposes port 80 to the host
+    depends_on:
+      - backend                        # Ensures frontend waits for backend to be ready
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
