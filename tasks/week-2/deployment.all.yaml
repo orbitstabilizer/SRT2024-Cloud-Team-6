@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  selector:
+    matchLabels:
+      run: backend
+  replicas: 1 
+  template:
+    metadata:
+      labels:
+        run: backend
+    spec:
+      containers:
+      - name: backend-container
+        image: localhost/backend-image
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: timeservice 
+spec:
+  selector:
+    run: backend
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+  type: ClusterIP
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    run: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: frontend
+  template:
+    metadata:
+      labels:
+        run: frontend
+    spec:
+      containers:
+      - name: frontend-container
+        image: localhost/frontend-image
+        ports:
+        - containerPort: 8081
+        env:
+        - name: BACKEND_URL
+          value: "http://timeservice"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pytime
+spec:
+  selector:
+    run: frontend
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: ClusterIP
