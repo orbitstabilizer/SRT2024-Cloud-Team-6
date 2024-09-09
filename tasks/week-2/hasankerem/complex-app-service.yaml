@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: complex-app-service
+spec:
+  selector:
+    app: complex-app
+  ports:
+    - name: complex-frontend
+      protocol: TCP
+      port: 80
+      targetPort: 80
+    - name: complex-backend
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
+  type: ClusterIP
