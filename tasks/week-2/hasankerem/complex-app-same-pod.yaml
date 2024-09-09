@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: complex-app
+spec:
+  replicas: 1 # Number of replicas you want to run
+  selector:
+    matchLabels:
+      app: complex-app
+  template:
+    metadata:
+      labels:
+        app: complex-app
+    spec:
+      containers:
+        - name: complex-frontend
+          image: hasanseker/complex-frontend:v4
+          ports:
+            - containerPort: 80
+        - name: complex-backend
+          image: hasanseker/complex-backend
+          ports:
+            - containerPort: 3000
