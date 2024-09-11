@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wapp
+  labels:
+    app: wapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wapp
+  template:
+    metadata:
+      labels:
+        app: wapp
+    spec:
+      containers:
+      - name: frontend
+        image: simalguven/frontend-image
+        ports:
+        - containerPort: 80
+      - name: backend
+        image: simalguven/backend-image
+        ports:
+        - containerPort: 3000
+        # Ensure the backend container serves requests from the frontend
+        env:
+        - name: FRONTEND_URL
+          value: "http://localhost:80"
