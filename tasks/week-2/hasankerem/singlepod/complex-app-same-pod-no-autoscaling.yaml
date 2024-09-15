@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
         - name: complex-frontend
-          image: hasanseker/complex-frontend:v4
+          image: hasanseker/complex-frontend:v7
           ports:
             - containerPort: 80
         - name: complex-backend
-          image: hasanseker/complex-backend
+          image: hasanseker/complex-backend:v2
           ports:
             - containerPort: 3000

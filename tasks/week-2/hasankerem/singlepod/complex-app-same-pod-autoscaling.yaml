@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: complex-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: complex-app
+  template:
+    metadata:
+      labels:
+        app: complex-app
+    spec:
+      containers:
+        - name: complex-frontend
+          image: hasanseker/complex-frontend:v7
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+        - name: complex-backend
+          image: hasanseker/complex-backend:v2
+          ports:
+            - containerPort: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
